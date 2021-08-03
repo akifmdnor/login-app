@@ -44,10 +44,38 @@ class HomeController extends Controller
             'quantity' =>  $request->get('quantity'),
         ]);
 
+        //save database
         $product->save();
 
         //go back to homepage
         return redirect(route('home'));
 
+    }
+
+    public function edit($id)
+    {
+        // cari data menggunakan id
+        $product = Product::find($id);
+
+        //show page with data
+        return view('edit', compact('product'));
+    }
+
+    public function update(Request $request,$id) {
+
+        //cari data menggunakan id
+        $product = Product::find($id);
+
+        //assign data dari form request ke variable nama $product
+        $product->product_name = $request->get('product_name');
+        $product->price = $request->get('price');
+        $product->product_description = $request->get('product_description');
+        $product->quantity = $request->get('quantity');
+
+        //save database
+        $product->save();
+
+        //redirect to home
+        return redirect(route('home'));
     }
 }

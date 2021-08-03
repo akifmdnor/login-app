@@ -26,3 +26,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // url 'product/store'
 Route::post('/product/store',[App\Http\Controllers\HomeController::class, 'store'])->name('product-store');
 
+
+// show edit page of the product corresponded to the id
+Route::get('/product/edit/{id}', [App\Http\Controllers\HomeController::class, 'edit'])->name('product-edit');
+
+// process new updated data 
+Route::patch('/product/update/{id}', [App\Http\Controllers\HomeController::class, 'update'])->name('product-update');
+//PATCH
+
