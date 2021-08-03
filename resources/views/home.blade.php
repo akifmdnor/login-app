@@ -40,6 +40,7 @@
                                     <th scope="col">Price</th>
                                     <th scope="col">Product Description</th>
                                     <th scope="col">Quantity</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,6 +54,11 @@
                                         <td>{{ $product->price }}</td>
                                         <td>{{ $product->product_description }}</td>
                                         <td>{{ $product->quantity }}</td>
+                                        <td> <a type="button" class="btn btn-primary" href="{{ route('product-edit', $product->id) }}">
+                                                Update
+                                            </a>
+                                        </td>
+                                        {{-- <td><a href="{{ route('admin.bookings.edit',$booking->id)}}" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Update</a></td> --}}
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -67,4 +73,5 @@
         </div>
     </div>
     @include('components.product-form')
+
 @endsection
